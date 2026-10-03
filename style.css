@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: black;
+    color: white;
+}
+
+header {
+    margin-top: 20px;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%;
+    background-color: transparent;
+    filter: drop-shadow(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;  
+}
+
+.logo {
+    font-size: 3rem;
+    color: purple;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+nav a {
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover, 
+nav a.active {
+    color: purple;
+    border-bottom: 3px solid purple;
+}
+
+@media(max-width:995px) {
+    nav {
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid purple;
+        border-bottom: 3px solid purple;
+        border-bottom-left-radius: 2rem;
+        padding: 1rem;
+        background-color: #161616;
+        border-top: 0.1rem solid rgba(0,0,0,0.1);
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    nav a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    nav a:hover,
+    nav a.active {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid purple;
+    }
+}
+
+section {
+    min-height: 100vh;
+    padding: 5rem 9% 5rem;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    background-color: #161616;
+}
+
+.home .home-content h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+span {
+    color: purple;    
+}
+
+.home-content h3 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.home-content p {
+    font-size: 1.7rem;
+}
+
+.home-img {
+    border-radius: 50%;
+}
+
+.home-img img {
+    position: relative;
+    width: 32vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px purple;
+    cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.home-img img:hover {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid purple;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease;
+    color: white;
+}
+
+.social-icons a:hover {
+    color: white;
+    transform: scale(1.3) translateY(-5px);
+    background-color: purple;
+    box-shadow: 0 0 25px purple;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background-color: transparent;
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: white;
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+    border: 2px solid purple;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale3d(1.03, 1.03, 1.03);
+    background-color: purple;
+    color: white;
+    box-shadow: 0 0 25px purple;
+}
+
+/* ==========================================
+   ANIMASI TYPING & DELETING TEXT
+========================================== */
+.typing-text {
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+    display: flex;
+    align-items: center;
+}
+
+/* Memberikan jarak (margin-left) dari teks "I'm a" */
+.typing-text span {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px; /* <--- Jarak tambahan antara "I'm a" dan kata yang diketik */
+}
+
+/* Elemen teks yang tampil */
+.typing-text span::before {
+    content: "Web Developer";
+    color: purple;
+    animation: words 15s infinite;
+}
+
+/* Kursor yang bergerak bersama efek mengetik/menghapus */
+.typing-text span::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 85%;
+    width: 2px;
+    background-color: purple;
+    animation: typing 15s steps(30) infinite, cursor 0.6s infinite;
+}
+
+/* Kedip Kursor */
+@keyframes cursor {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Ganti Teks Secara Bergantian */
+@keyframes words {
+    0%, 18% {
+        content: "Web Developer";
+    }
+    20%, 38% {
+        content: "UI/UX Designer";
+    }
+    40%, 58% {
+        content: "Continuous Learner";
+    }
+    60%, 78% {
+        content: "Problem Solver";
+    }
+    80%, 98% {
+        content: "Intermediate Designer";
+    }
+}
+
+/* Efek Mengetik dan Menghapus */
+@keyframes typing {
+    /* --- Teks 1 --- */
+    0% { width: 100%; }            /* Tertutup (Kosong) */
+    3%, 12% { width: 0%; }         /* Mengetik -> Terbuka */
+    15%, 18% { width: 100%; }      /* Menghapus -> Tertutup kembali */
+
+    /* --- Teks 2 --- */
+    20% { width: 100%; }
+    23%, 32% { width: 0%; }
+    35%, 38% { width: 100%; }
+
+    /* --- Teks 3 --- */
+    40% { width: 100%; }
+    43%, 52% { width: 0%; }
+    55%, 58% { width: 100%; }
+
+    /* --- Teks 4 --- */
+    60% { width: 100%; }
+    63%, 72% { width: 0%; }
+    75%, 78% { width: 100%; }
+
+    /* --- Teks 5 --- */
+    80% { width: 100%; }
+    83%, 92% { width: 0%; }
+    95%, 98% { width: 100%; }
+}
+
+@media (max-width: 1000px) {
+    .home {
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 995px) {
+    .home {
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+
+    .home .home-content h3 {
+        font-size: 2.5rem;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+}
